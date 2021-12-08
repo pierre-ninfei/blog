@@ -1,10 +1,17 @@
 <?php 
 
 session_start();
+<<<<<<< Updated upstream
 //define var
 
 $p_login=" ";
 $p_email="test@gmail.com";
+=======
+//define var debug
+
+$p_login=" ";
+$p_email="t@gmail.com";
+>>>>>>> Stashed changes
 $p_passw1 = " ";
 $p_passw2 = " ";
 
@@ -13,6 +20,10 @@ $p_errors = array();
 //connect to bdd 
 
 $bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se connecter à la bdd");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 //retrieve infos from form
 
 if(isset($_POST['p_login'])){
@@ -83,4 +94,49 @@ if(count($p_errors) == 0 && $p_login != " "){
 	header('location: connexion.php');
 }
 
+<<<<<<< Updated upstream
+=======
+
+									// CONNEXION
+
+
+//define var debug
+
+$p_loginc = " ";
+$p_passwordc = " ";
+
+//retrieve infos from form
+
+if(isset($_POST['confirm'])){
+	$p_loginc = mysqli_real_escape_string($bdd, $_POST['p_loginc']);
+
+	$p_passwordc = mysqli_real_escape_string($bdd, $_POST['p_passwordc']);
+}
+//Check for form errors
+
+if(empty($p_loginc)){
+	array_push($p_errors, "Veuillez saisir un nom d'utilisateur");
+}
+
+if(empty($p_passwordc)){
+	array_push($p_errors, "Veuillez saisir un mot de passe");
+}
+
+//If no errors, attempt log in 
+
+if(count($p_errors) == 0 && $p_loginc !=" "){
+
+	if(mysqli_num_rows($p_conn)){
+		$_SESSION['login'] = $p_login;
+		$_SESSION['success'] = "Connexion validée";
+
+		header('location: index.php');
+	}
+
+	//If no account is found in the bdd
+	else{
+		array_push($p_errors, "Identifiant ou mot de passe invalide");
+	}
+}
+>>>>>>> Stashed changes
 ?>

@@ -1,18 +1,16 @@
 <?php
 
 session_start();
-
+$_SESSION['login'] = "paul";
+$_SESSION['password'] = "12345";
+$_SESSION['email'] = "paul@abc.fr";
  
 
 /*  ///////// connexion base de donées et requètes  \\\\\\\\  */
 $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
 $requete = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$user'");
 $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
-if(isset($user)){
-    $_SESSION['login'] = "paul";
-    $_SESSION['password'] = "12345";
-    $_SESSION['email'] = "paul@abc.fr";
-}
+
 $user = $_SESSION['login'];
 
     /*  ///////// varriables   \\\\\\\\  */

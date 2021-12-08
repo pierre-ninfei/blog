@@ -23,7 +23,7 @@
 
    if(isset($_SESSION["login"])){
    echo "
-   <form  class ='decoform'method='get'>  
+   <form  class ='decoform' method='get'>  
          <input class='deco'  type='submit' name='deco' value='Se déconnecter'></input>
          </form>";
    } 

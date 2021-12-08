@@ -1,10 +1,6 @@
    <?php 
    //_________________display header according to connection status_________________//
    session_start();
-   $_SESSION["connected"] = "set";
-   $_SESSION["id"]=null;
-   $_SESSION["id"]=42;
-
 
    echo 
    "<nav><a href='index.php'> Accueil </a>

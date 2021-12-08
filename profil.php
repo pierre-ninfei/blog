@@ -1,5 +1,5 @@
+<?php include('phpspe/inscription&connexion_back.php'); ?>
 <?php
-
 session_start();
 // if(isset($user)){
 // $_SESSION['login'] = "paul";
@@ -60,8 +60,7 @@ if(isset($_POST['envoyer'])){
 </head>
 <body>
     <header>
-    <a href='?deco=true' alt='bouton deconnexion'>Deconnexion</a>
-        <!-- /////////////////include.header.php\\\\\\\\\\\\\\\ -->
+        <?php //include('header.php'); ?>
     </header>
 
     <container class="mcontainer">
@@ -98,8 +97,7 @@ if(isset($_POST['envoyer'])){
 
 
     <footer>
-        <!-- /////////////////include.footer.php\\\\\\\\\\\\\\\ -->
-
+        <?php include "footer.php";?> 
     </footer>
 
 </body>

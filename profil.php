@@ -10,7 +10,10 @@ $_SESSION['email'] = "paul@abc.fr";
 $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
 $requete = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$user'");
 $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 $user = $_SESSION['login'];
 
     /*  ///////// varriables   \\\\\\\\  */

@@ -9,7 +9,6 @@ $p_email="test@gmail.com";
 
 $p_login=" ";
 $p_email="t@gmail.com";
->>>>>>> Stashed changes
 $p_passw1 = " ";
 $p_passw2 = " ";
 

@@ -1,11 +1,11 @@
-<?php include('phpspe/inscription&connexion_back.php'); ?>
+
 <?php
 session_start();
 // if(isset($user)){
 // $_SESSION['login'] = "paul";
 // $_SESSION['password'] = "12345";
 // $_SESSION['email'] = "paul@abc.fr";}
- 
+ include('phpspe/inscription&connexion_back.php');
 
 /*  ///////// connexion base de donées et requètes  \\\\\\\\  */
 $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
@@ -55,12 +55,12 @@ if(isset($_POST['envoyer'])){
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="style.css">
   <title>Pofil</title>
 </head>
 <body>
     <header>
-        <?php //include('header.php'); ?>
+        <?php include "header.php";?>     
     </header>
 
     <container class="mcontainer">

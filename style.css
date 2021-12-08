@@ -36,7 +36,10 @@ header {
     transition-duration: 100ms;
     padding-bottom:10px;
     padding-top:10px;
+<<<<<<< HEAD
+=======
     margin-top: -20px;
+>>>>>>> main
 }
 
 .deco:hover {
@@ -102,7 +105,11 @@ nav{
 }
   
 .dropdown_content a{
+<<<<<<< HEAD
+    font-size : 15px;
+=======
     font-size : 16px;
+>>>>>>> main
     padding-left : 15px;
 }
 
@@ -126,9 +133,16 @@ nav{
 .sitemap a{
     font-size : 17px;
     color: black;
+<<<<<<< HEAD
+
+}
+
+footer{
+=======
 }
 
 .footer_container{
+>>>>>>> main
     margin-top: 200px;
     display : flex;
     flex-direction : column;
@@ -152,6 +166,8 @@ footer a:visited:hover {
     color:rgb(177, 177, 252);
 }
 
+<<<<<<< HEAD
+=======
 #copyright{
     text-align: center;
     padding: 10px;
@@ -185,6 +201,7 @@ footer a:visited:hover {
     font-size: 15px;
 }
 
+>>>>>>> main
 /*______________ General ______________*/
 
 .sm_title{
@@ -192,7 +209,11 @@ footer a:visited:hover {
     flex-direction: column;
     justify-content:  center;
     align-items:center;
+<<<<<<< HEAD
+    height: 300px;
+=======
     height: 250px;
+>>>>>>> main
     font-size : 50px;   
 }
 
@@ -203,8 +224,14 @@ footer a:visited:hover {
     flex-direction: column;
     justify-content:  center;
     align-items:center;
+<<<<<<< HEAD
+    height: 400px;
+    font-size : 70px;   
+    margin-bottom :300px;
+=======
     height: 430px;
     font-size : 70px;   
+>>>>>>> main
 }
 
 footer {
@@ -215,6 +242,8 @@ footer {
     font-size : 27px;
 }
 
+<<<<<<< HEAD
+=======
 .index_articles{
     display : flex;
     flex-direction :column;
@@ -226,6 +255,7 @@ footer {
     width : 1200px;
 }
 
+>>>>>>> main
 /*______________ Inscription ______________*/
 
 
@@ -239,8 +269,11 @@ footer {
 .p_i_intro_txt {
     font-size : 20px;
     padding-bottom : 30px;
+<<<<<<< HEAD
+=======
     font-weight : normal;
     font-style : italic;
+>>>>>>> main
 }
 
 .p_i_form {
@@ -253,8 +286,11 @@ footer {
     padding : 10px;
     font-size : 20px;
     margin-bottom : 200px;
+<<<<<<< HEAD
+=======
     font-family : monospace;
     height : 450;
+>>>>>>> main
 }
 
 .p_i_form form{

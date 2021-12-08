@@ -5,11 +5,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
 		<title>Connexion (TEMP)</title>
 	</head>
 
 	<header>
-		<?php //include('header.php'); ?>
+		<?php include('header.php'); ?>
 	</header>
 
 	<body>
@@ -37,6 +38,6 @@
 	</body>
 
 	<footer>
-		<?php //include('footer.php'); ?>
+		<?php include('footer.php'); ?>
 	</footer>
 </html>

@@ -117,7 +117,8 @@ if(empty($p_passwordc)){
 //If no errors, attempt log in 
 
 if(count($p_errors) == 0 && $p_loginc !=" "){
-
+	$p_query_c = "SELECT * FROM utilisateurs WHERE (login ='$p_loginc' AND password ='$p_passwordc') OR (email ='$p_loginc' AND password='$p_passwordc')";
+	$p_conn = mysqli_query($bdd, $p_query_c);
 	if(mysqli_num_rows($p_conn)){
 		$_SESSION['login'] = $p_login;
 		$_SESSION['success'] = "Connexion validée";

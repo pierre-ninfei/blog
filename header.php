@@ -22,7 +22,7 @@
       echo "<a href='cree-article.php'> Ecrire  </a>";
    } 
 
-   if(isset($_SESSION["connected"])){
+   if(isset($_SESSION["login"])){
       if($_SESSION["id"]==1337){
       echo "<a href='admin.php'> Admin </a>";
       }
@@ -34,7 +34,7 @@
       echo "<a href='inscription.php'> Inscription </a>";
    }
 
-   if(isset($_SESSION["connected"])){
+   if(isset($_SESSION["login"])){
    echo "
    <form  class ='decoform'method='get'>  
          <input class='deco'  type='submit' name='deco' value='Se déconnecter'></input>

@@ -1,9 +1,10 @@
 <?php
 
 session_start();
-$_SESSION['login'] = "paul";
-$_SESSION['password'] = "12345";
-$_SESSION['email'] = "paul@abc.fr";
+// if(isset($user)){
+// $_SESSION['login'] = "paul";
+// $_SESSION['password'] = "12345";
+// $_SESSION['email'] = "paul@abc.fr";}
  
 
 /*  ///////// connexion base de donées et requètes  \\\\\\\\  */
@@ -46,18 +47,6 @@ if(isset($_POST['envoyer'])){
     header('location: profil.php');
     }
 }
-
-    if(isset($_SESSION['login'])){ 
-   echo "hello $user";
-    }
-
-    /*  ///////// Deconnexion  \\\\\\\\  */
-    if(isset($_GET['deco']))
-    { 
-    session_destroy();
-    // header("location: index.php");
-    }
-    var_dump($_SESSION['email'])
 ?>
 
 

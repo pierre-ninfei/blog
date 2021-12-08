@@ -14,14 +14,14 @@
    </div>
    ";
 
-   if(isset($_SESSION["connected"])){
+   if(isset($_SESSION["login"])){
       echo "<a href='profil.php'> Profil </a>";
    } 
    else{
       echo "<a href='inscription.php'> Inscription </a>";
    }
 
-   if(isset($_SESSION["connected"])){
+   if(isset($_SESSION["login"])){
    echo "
    <form  class ='decoform'method='get'>  
          <input class='deco'  type='submit' name='deco' value='Se déconnecter'></input>

@@ -1,12 +1,10 @@
 <?php 
 
 session_start();
-<<<<<<< Updated upstream
 //define var
 
 $p_login=" ";
 $p_email="test@gmail.com";
-=======
 //define var debug
 
 $p_login=" ";
@@ -20,10 +18,7 @@ $p_errors = array();
 //connect to bdd 
 
 $bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se connecter à la bdd");
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 //retrieve infos from form
 
 if(isset($_POST['p_login'])){
@@ -84,7 +79,7 @@ if($p_mail){
 //if there are no errors, register user's account
 
 if(count($p_errors) == 0 && $p_login != " "){
-	$p_password = password_hash($p_passw1, PASSWORD_DEFAULT);
+	$p_password = $p_passw1;
 	$p_queryr = "INSERT INTO utilisateurs(login, password, email, id_droits) VALUES ('$p_login', '$p_password', '$p_email', 1)";
 	mysqli_query($bdd, $p_queryr);
 
@@ -94,8 +89,6 @@ if(count($p_errors) == 0 && $p_login != " "){
 	header('location: connexion.php');
 }
 
-<<<<<<< Updated upstream
-=======
 
 									// CONNEXION
 
@@ -138,5 +131,4 @@ if(count($p_errors) == 0 && $p_loginc !=" "){
 		array_push($p_errors, "Identifiant ou mot de passe invalide");
 	}
 }
->>>>>>> Stashed changes
 ?>

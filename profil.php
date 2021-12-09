@@ -1,25 +1,21 @@
 
 <?php
 session_start();
-// if(isset($user)){
-// $_SESSION['login'] = "paul";
-// $_SESSION['password'] = "12345";
-// $_SESSION['email'] = "paul@abc.fr";}
  include('phpspe/inscription&connexion_back.php');
 
 /*  ///////// connexion base de donées et requètes  \\\\\\\\  */
-$bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-$requete = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$user'");
+// $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
+$requete = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$_SESSION[login]'");
 $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
-$user = $_SESSION['login'];
+
 
     /*  ///////// varriables   \\\\\\\\  */
-$login = $result[0]['login'];  
-$password = $result[0]['password'];
-$password2 = $result[0]['password2'];
-$mail = $result[0]['email'];
-$mail2 = $result[0]['email2']; 
+// $login = $result[0]['login'];  
+// $password = $result[0]['password'];
+// $password2 = $result[0]['password2'];
+// $mail = $result[0]['email'];
+// $mail2 = $result[0]['email2']; 
 
     /*  ///////// conditions des changements des infos utilisateurs  \\\\\\\\  */
 if(isset($_POST['envoyer'])){
@@ -31,22 +27,23 @@ if(isset($_POST['envoyer'])){
 
     if (isset($_POST['password']) && isset($_POST['password2'])){
         if($newpassword == $newpassword2 ){
-            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET password = '$newpassword' WHERE login = '$user'" );
+            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET password = '$newpassword' WHERE login = '$_SESSION[login]'" );
         }
     }
     if (isset($_POST['email']) && isset($_POST['email2'])){
         if($newemail == $newemail2 ){
-            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET email = '$newemail' WHERE login = '$user'" );
+            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET email = '$newemail' WHERE login = '$_SESSION[login]'" );
         }
     }
 
    if (isset($_POST['login']) && $_POST['login'] != $result['login']){   
-    $login = $_POST['login'];
-    $newlogin = mysqli_query($bdd,"UPDATE `utilisateurs` SET login = '$login' WHERE login ='$user' ");
-    $_SESSION['login'] = $login;
+    $p_loginc = $_POST['login'];
+    $newlogin = mysqli_query($bdd,"UPDATE `utilisateurs` SET login = '$newlogin' WHERE login ='$_SESSION[login]' ");
+    $_SESSION['login'] = $$p_loginc;
     header('location: profil.php');
     }
 }
+
 ?>
 
 
@@ -67,11 +64,11 @@ if(isset($_POST['envoyer'])){
         <form class = "mformprofil" action="" method="post">
         <div>
             <label for="login">Login :</label></br>
-            <input type="text" value= "<?php echo $user ;  ?>" name="login"/></br>
+            <input type="text" value= "<?php echo $p_loginc ;  ?>" name="login"/></br>
         </div>
         <div>
             <label for="password">Password :</label></br>
-            <input type="password" value="<?php $_SESSION['login'] ?>" name="password"></br>
+            <input type="password" value="<?php echo $p_passwordc ?>" name="password"></br>
         </div>
         <div>
             <label for="password2">Password confirmation :</label></br>
@@ -79,7 +76,7 @@ if(isset($_POST['envoyer'])){
         </div>
         <div>
             <label for="email">e-mail :</label></br>
-            <input type="text" value="<?php echo $_SESSION['email'] ?>" name="email"/></br>
+            <input type="text" value="<?php echo $p_email ?>" name="email"/></br>
         </div>
         <div>
             <label for="email2">e-mail confirmation :</label></br>

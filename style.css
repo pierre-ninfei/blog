@@ -1,0 +1,453 @@
+
+* {
+    box-sizing: border-box;
+    margin : 0;
+  }
+  
+body {
+    background-color: rgb(177, 177, 252);
+    font-family : Georgia, serif;
+    font-size : 25px;
+} 
+
+main {
+    display : flex;
+    flex-direction : column;
+}
+
+/*______________ Header ______________*/
+
+header {
+    display : flex;
+    flex-direction: row;
+    justify-content:  flex-end;
+    align-items: flex-end;
+    gap : 20px;
+    padding : 30px;
+}
+
+.deco {
+    border:none;
+    font-family : monospace;
+    font-size: 15px;
+    background-color : none;
+    padding-bottom : 5px; 
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    transition-duration: 100ms;
+    padding-bottom:10px;
+    padding-top:10px;
+    margin-top: -20px;
+}
+
+.deco:hover {
+    background-color : rgb(202, 202, 202);
+}
+
+.decoform {
+    border:none;
+    font-family : monospace;
+    font-size: 15px;
+}
+
+header a {
+    font-family: monospace;
+    text-decoration: none;
+    font-size : 17px;
+    color:white;
+    transition-timing-function: ease-in-out;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    transition-duration: 300ms;
+    padding-bottom : 10px;
+}
+
+a:hover {
+    color:black;
+}
+
+a:visited {
+    color:white;
+}
+
+a:visited:hover {
+    color:black;
+}
+
+/************** NAV **************/
+
+nav{
+    display : flex;
+    flex-direction : row;
+    gap : 20px;
+}
+
+/***** Dropdown *****/
+
+.dropdownArticles{
+    display : flex;
+    flex-direction : column;
+    justify-content: flex-start;
+}
+.dropdown_content {
+    overflow: hidden;
+    background-color: white;
+    z-index:2;
+    position : absolute;
+    display : none;
+    flex-direction: column;
+  }
+  
+.dropdown_content {
+    background-color:transparent;
+    margin-top: 25px;
+}
+  
+.dropdown_content a{
+    font-size : 16px;
+    padding-left : 15px;
+}
+
+.dropdownArticles:hover .dropdown_content {
+    display : flex ;
+}
+
+.dropdownArticles:hover .navA {
+    color : black;
+}
+
+/*______________ Footer ______________*/
+
+.sitemap{
+    display : flex;
+    flex-direction : row;
+    font-size : 12px;
+    gap : 10px;
+}
+
+.sitemap a{
+    font-size : 17px;
+    color: black;
+}
+
+.footer_container{
+    margin-top: 200px;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    background-color : lavender;
+    padding : 20px;
+    border : auto;
+    margin-top: 50px;
+    font-family: monospace;
+}
+
+footer a:hover {
+    color:rgb(177, 177, 252);
+}
+
+footer footer a:visited {
+    color:black;
+}
+
+footer a:visited:hover {
+    color:rgb(177, 177, 252);
+}
+
+#copyright{
+    text-align: center;
+    padding: 10px;
+    font-size:12px;
+    font-family : monospace;
+    letter-spacing :0.01px;
+
+}
+
+.deco_footer {
+    border:none;
+    font-family : monospace;
+    font-size: 15px;
+    background-color :rgb(177, 177, 252);
+    padding-bottom : 5px; 
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    transition-duration: 100ms;
+    padding-top:5px;
+    margin-top: -3px;
+    line-height : 15px; 
+}
+
+
+.deco_footer:hover {
+    background-color : rgb(202, 202, 202);
+}
+
+.decoform_footer {
+    border:none;
+    font-family : monospace;
+    font-size: 15px;
+}
+
+/*______________ General ______________*/
+
+.sm_title{
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    height: 250px;
+    font-size : 50px;   
+}
+
+/*______________ Index ______________*/
+
+.title{
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    height: 430px;
+    font-size : 70px;   
+}
+
+footer {
+    font-size : 10px;
+}
+
+.github{
+    font-size : 27px;
+}
+
+.index_articles{
+    display : flex;
+    flex-direction :column;
+    gap : 10px;
+}
+.index_articles article{
+    background-color : lavender;
+    height : 400px;
+    width : 1200px;
+}
+
+/*______________ Inscription ______________*/
+
+
+.p_i_container {
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+}
+
+.p_i_intro_txt {
+    font-size : 20px;
+    padding-bottom : 30px;
+    font-weight : normal;
+    font-style : italic;
+}
+
+.p_i_form {
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    background-color : lavender;
+    width : 500px;
+    padding : 10px;
+    font-size : 20px;
+    margin-bottom : 200px;
+    font-family : monospace;
+    height : 450;
+}
+
+.p_i_form form{
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+}
+
+/*______________ User profile page ______________*/
+
+.container{
+    display : flex;
+    flex-direction: row;
+    justify-content:  center;
+    align-items:center;
+    background-color : rgb(173, 174, 252);
+}
+
+.myform2 {
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    width : 400px;
+    padding : 10px;
+    height : 200px;
+}
+
+#update{
+    text-align : center;
+    color : white;  
+    font-weight : bold;
+    font-size : 30px;
+}
+
+/*______________ Planning ______________*/
+
+.pContainer{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height : 600px;
+    font-family : monospace;
+    font-size: 20px;
+}
+
+.planning{
+    align-items : center;
+    background-color:lavenderblush;
+    font-family : monospace;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+td {
+  border: 1px solid black;
+  width: 190px;
+  table-layout: fixed;
+  overflow: hidden;
+  text-align: center;
+  font-size : 18px;
+}
+
+tr{
+    text-align: center;
+    height : 40px;
+    overflow: hidden;
+    table-layout: fixed;
+
+}
+
+.weekSelect form{
+    background-color: rgb(245, 245, 245);
+    padding : 5px;
+}
+
+.weekSelect input{
+    background-color: rgb(142, 144, 252);
+}
+
+article a {
+    text-decoration : none;
+    color: white;
+}
+
+footer a {
+    text-decoration : none;
+    color: white;
+    font-size : 30px;
+}
+
+#newevent{
+    display : flex;
+    flex-direction : column;
+    align-items :center;
+    text-align : center;
+    font-family:monospace;
+    justify-content: center;
+    text-decoration: none;
+    padding : 10px;
+}
+
+main a{
+    text-decoration: none;
+}
+
+.planning a:visited{
+    color:blue;
+}
+
+.addEvent{
+    background-color : rgb(165, 166, 252);
+    width : 300px;
+    font-size : 20px;
+    padding : 10px;
+    border-top:3px solid #CCCCCC;
+    border-right: 4px solid #666666;
+    border-bottom: 4px solid #666666;
+    border-left: 3px solid #CCCCCC;
+}
+
+.evlink:visited{
+    color:white;
+}
+
+.reza {
+    border: none;
+    background-color: transparent;
+    color : blue;
+    font-family: monospace;
+    font-size : 17px;
+    cursor: pointer;
+}
+
+/*______________ Reservation form ______________*/
+
+main {
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking_container{
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size : 15px;
+    width : 300px;
+    font-size : 17px;
+    background-color:lavenderblush;
+}
+
+.booking_container form{
+    display : flex;
+    flex-direction : column;
+    width : 200px;
+    background-color:lavenderblush;
+    padding: 10px;
+    line-height: 26px;
+
+}
+
+.desc{
+    height : 100px;
+}
+
+.book{
+    font-family : monospace;    
+    font-size : 13px;
+	border: none;
+    display : flex;
+    padding : 2px;
+    margin-top: 20px;
+    text-align: center ;
+    justify-content: center; 
+    background-color : rgb(228, 220, 252);
+    height : 30px;
+}
+
+.book:hover{
+    background-color : rgb(215, 195, 248);
+}
+
+.tsigni{
+    display : flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    height: 150px;
+    font-size : 65px;   
+}

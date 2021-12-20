@@ -7,15 +7,15 @@
    <div class='dropdownArticles'>
       <a class='navA' href='articles.php'> Articles <i class='fa fa-angle-down'></i> 
       <div class='dropdown_content'>
-       <a href='categorie1.php'> Projets</a>
-       <a href='categorie2.php'> Veille</a>
-       <a href='categorie3.php'> Design</a>
+       <a href='articles.php?Categorie=Projets'> Projets</a>
+       <a href='articles.php?Categorie=Veille'> Veille</a>
+       <a href='articles.php?Categorie=Design'> Design</a>
       </div>
    </div>
    ";
    
-   if($_SESSION["id"]==42){
-      echo "<a href='cree-article.php'> Ecrire  </a>";
+   if($_SESSION["id"]==42 || $_SESSION["id"]==1337){
+      echo "<a href='creer-article.php'> Ecrire  </a>";
    } 
 
    if(isset($_SESSION["login"])){

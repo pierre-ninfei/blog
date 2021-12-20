@@ -15,8 +15,8 @@
 
 	//connect to bdd 
 
-	$bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se connecter à la bdd");
-
+	include('db_link.php');
+	
 	//retrieve infos from form
 
 	if(isset($_POST['submit_i'])){

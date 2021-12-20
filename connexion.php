@@ -18,17 +18,17 @@
 
 	// connect to bdd
 
-	include('db_link.php');
+	include 'db_link.php';
 	
 	//retrieve infos from form
 
 	 if(isset($_POST['submit_c'])){
 		if(isset($_POST['p_loginc'])){
-			$p_loginc = mysqli_real_escape_string($bdd, $_POST['p_loginc']);
+			$p_loginc = mysqli_real_escape_string($conn, $_POST['p_loginc']);
 		}
 
 		if(isset($_POST['p_passwordc'])){
-			$p_passwordc = mysqli_real_escape_string($bdd, $_POST['p_passwordc']);
+			$p_passwordc = mysqli_real_escape_string($conn, $_POST['p_passwordc']);
 		}
 
 		//Check for form errors
@@ -45,7 +45,7 @@
 		
 		if(count($p_errors) == 0 && $p_loginc !=" "){
 			$p_query_c = "SELECT password FROM utilisateurs WHERE login ='$p_loginc'";
-			$p_conn = mysqli_query($bdd, $p_query_c);
+			$p_conn = mysqli_query($conn, $p_query_c);
 			$p_password_q = mysqli_fetch_array($p_conn);
 
 			if(mysqli_num_rows($p_conn)){
@@ -55,7 +55,7 @@
 					//retrieve user's role ID
 
 					$p_query_id = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
-					$p_id_d_q = mysqli_query($bdd, $p_query_id);
+					$p_id_d_q = mysqli_query($conn, $p_query_id);
 					$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
 
 					// define new session vars

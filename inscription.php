@@ -15,25 +15,25 @@
 
 	//connect to bdd 
 
-	include('db_link.php');
+	include'db_link.php';
 	
 	//retrieve infos from form
 
 	if(isset($_POST['submit_i'])){
 		if(isset($_POST['p_login'])){
-			$p_login = mysqli_real_escape_string($bdd, $_POST['p_login']);
+			$p_login = mysqli_real_escape_string($conn, $_POST['p_login']);
 		}
 
 		if(isset($_POST['p_email'])){
-			$p_email = mysqli_real_escape_string($bdd, $_POST['p_email']);
+			$p_email = mysqli_real_escape_string($conn, $_POST['p_email']);
 		}
 
 		if(isset($_POST['p_passw'])){
-			$p_passw1 = mysqli_real_escape_string($bdd, $_POST['p_passw']);
+			$p_passw1 = mysqli_real_escape_string($conn, $_POST['p_passw']);
 		}
 
 		if(isset($_POST['p_passwc'])){
-			$p_passw2 = mysqli_real_escape_string($bdd, $_POST['p_passwc']);
+			$p_passw2 = mysqli_real_escape_string($conn, $_POST['p_passwc']);
 		}
 
 
@@ -58,7 +58,7 @@
 		// Check if login and email already are in use in the bdd
 
 		$p_user_check = "SELECT * FROM utilisateurs WHERE login ='$p_login' LIMIT 1";
-		$p_query = mysqli_query($bdd, $p_user_check);
+		$p_query = mysqli_query($conn, $p_user_check);
 		$p_user = mysqli_fetch_assoc($p_query);
 		if($p_user){
 			if($p_user['login'] === $p_login){
@@ -67,7 +67,7 @@
 		}
 
 		$p_email_check = "SELECT * FROM utilisateurs WHERE email = '$p_email' LIMIT 1";
-		$p_query2 = mysqli_query($bdd, $p_email_check);
+		$p_query2 = mysqli_query($conn, $p_email_check);
 		$p_mail = mysqli_fetch_assoc($p_query2);
 		if($p_mail){
 			if($p_mail['email'] == $p_email){
@@ -81,7 +81,7 @@
 		if(count($p_errors) == 0 && $p_login != " "){
 			$p_password = password_hash($p_passw1, PASSWORD_DEFAULT);
 			$p_queryr = "INSERT INTO utilisateurs(login, password, email, id_droits) VALUES ('$p_login', '$p_password', '$p_email', 1)";
-			mysqli_query($bdd, $p_queryr);
+			mysqli_query($conn, $p_queryr);
 
 			header('location: connexion.php');
 		}

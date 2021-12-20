@@ -451,3 +451,14 @@ main {
     height: 150px;
     font-size : 65px;   
 }
+
+
+/* /////////////////ADMIN PAGE\\\\\\\\\\\\\\\\\\ */
+
+.articlesInputs{
+    width: 50%;
+    display: flex;
+    justify-content:space-around;
+    margin: auto;
+}
+

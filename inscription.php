@@ -101,16 +101,16 @@ if(isset($_POST['submit_i'])){
 			<div class="p_i_form"> 
 				<form method="post" action="inscription.php">
 					<label for="p_login"><br/> Nom d'utilisateur </label>
-					<input type="text" name="p_login"/>
+					<input type="text" value="<?php if(isset($_POST['p_login'])){echo $_POST['p_login'];}; ?>" name="p_login"/>
 
 					<label for="p_email"><br/> Adresse mail </label>
-					<input type="text" name="p_email"/>
+					<input type="text" value="<?php if(isset($_POST['p_email'])){echo $_POST['p_email'];}; ?>"name="p_email"/>
 
 					<label for="p_passw"><br/> Mot de passe </label>
-					<input type="password" name="p_passw"/>
+					<input type="password" value="<?php if(isset($_POST['p_passw'])){echo $_POST['p_passw'];}; ?>" name="p_passw"/>
 
 					<label for="p_passwc"><br/> Confirmez le mot de passe </label>
-					<input type="password" name="p_passwc"/>
+					<input type="password" value="<?php if(isset($_POST['p_passwc'])){echo $_POST['p_passwc'];}; ?>" name="p_passwc"/>
 
 					<br/>
 					<input type="submit" name ="submit_i" value="Valider"/>

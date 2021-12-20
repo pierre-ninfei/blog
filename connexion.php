@@ -84,7 +84,7 @@ $bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se 
 			<div class="p_i_form">
 				<form method="post" action="connexion.php">
 					<label for="p_loginc"><br/> Nom d'utilisateur </label>
-					<input type="text" name="p_loginc"/>
+					<input type="text" value="<?php echo $_POST['p_loginc']; ?>" name="p_loginc"/>
 
 					<label for="p_passwordc"><br/> Mot de passe </label>
 					<input type="password" name="p_passwordc"/>

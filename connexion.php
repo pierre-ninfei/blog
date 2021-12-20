@@ -32,29 +32,34 @@ $bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se 
 	//If no errors, attempt log in 
 	
 	if(count($p_errors) == 0 && $p_loginc !=" "){
-		$p_query_c = "SELECT * FROM utilisateurs WHERE (login ='$p_loginc' AND password ='$p_passwordc') OR (email ='$p_loginc' AND password='$p_passwordc')";
+		$p_query_c = "SELECT password FROM utilisateurs WHERE login ='$p_loginc'";
 		$p_conn = mysqli_query($bdd, $p_query_c);
+		$p_password_q = mysqli_fetch_array($p_conn);
 
 		if(mysqli_num_rows($p_conn)){
-			//retrieve user's role ID
 
-			$p_query_id = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
-			$p_id_d_q = mysqli_query($bdd, $p_query_id);
-			$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
+			if(password_verify($_POST['p_passwordc'], $p_password_q[0]) == true){
 
-			// define new session vars
+				//retrieve user's role ID
 
-			$_SESSION['id'] = $p_id_droits;
-			$_SESSION['login'] = $p_loginc;
-			$_SESSION['success'] = "Connexion validée";
+				$p_query_id = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
+				$p_id_d_q = mysqli_query($bdd, $p_query_id);
+				$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
 
-			header('location: index.php');
-		}
+				// define new session vars
 
-		//If no account is found in the bdd
-		
-		else{
-			array_push($p_errors, "Identifiant ou mot de passe invalide");
+				$_SESSION['id'] = $p_id_droits;
+				$_SESSION['login'] = $p_loginc;
+				$_SESSION['success'] = "Connexion validée";
+
+				header('location: index.php');
+			}
+
+			//If no account is found in the bdd
+			
+			else{
+				array_push($p_errors, "Identifiant ou mot de passe invalide");
+			}
 		}
 	}
 }
@@ -84,15 +89,14 @@ $bdd = mysqli_connect("localhost", "root", "", "blog") or die("impossible de se 
 			<div class="p_i_form">
 				<form method="post" action="connexion.php">
 					<label for="p_loginc"><br/> Nom d'utilisateur </label>
-					<input type="text" value="<?php echo $_POST['p_loginc']; ?>" name="p_loginc"/>
+					<input type="text" value="<?php if(isset($_POST['p_loginc'])){echo $_POST['p_loginc'];}; ?>" name="p_loginc"/>
 
 					<label for="p_passwordc"><br/> Mot de passe </label>
-					<input type="password" name="p_passwordc"/>
+					<input type="password" value="<?php if(isset($_POST['p_passwordc'])){echo $_POST['p_passwordc'];}; ?>" name="p_passwordc"/>
 
 					<br/>
 					<input type="submit" name="submit_c" value="Valider"/>
 					<?php // counts errors and return values of each
-
 					if(count($p_errors) > 0) : ?>
 						<div>
 							<?php foreach($p_errors	as $p_error) : ?>

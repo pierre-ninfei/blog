@@ -66,8 +66,9 @@ if(isset($_POST['submit_i'])){
 
 	//if there are no errors, register user's account
 
+	//starting with password hashing
 	if(count($p_errors) == 0 && $p_login != " "){
-		$p_password = $p_passw1;
+		$p_password = password_hash($p_passw1, PASSWORD_DEFAULT);
 		$p_queryr = "INSERT INTO utilisateurs(login, password, email, id_droits) VALUES ('$p_login', '$p_password', '$p_email', 1)";
 		mysqli_query($bdd, $p_queryr);
 

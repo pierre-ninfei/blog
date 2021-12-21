@@ -55,7 +55,7 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
                 echo '
                 <tr>
                 <td>'.$res[0]['id'].'</td>
-                <td>'.$res[0]['article'].'</td>
+                <td>'.substr($res[0]['article'],0 ,20).'..</td>
                 <td>'.$res[0]['id_utilisateur'].'</td>
                 <td>'.$res[0]['id_categorie'].'</td>
                 <td>'.$res[0]['date'].'</td>

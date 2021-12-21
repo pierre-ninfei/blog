@@ -13,7 +13,7 @@
     if($_SESSION['id']['id_droits'] == 1337){
 
     $user = $_SESSION['login'];
-
+    $tronc = substr($article['article'],0 ,30);
     include 'db_link.php';
     
             ///////////////requetes uilisateurs\\\\\\\\\\\\\\\\
@@ -103,7 +103,7 @@
             
                     echo'<tr>
                         <td>'.$article['id'].'</td>
-                        <td>'.$article['article'].'</td>
+                        <td>'.substr($article['article'],0 ,20).'..</td>
                         <td>'.$article['id_categorie'].'</td>
                         <td>'.$article['date'].'</td>
                         <td><a href="deleteArticle.php?id='.$article['id'].'">Delete</a></td>

@@ -54,7 +54,7 @@
 
 					//retrieve user's role ID
 
-					$p_query_id = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
+					$p_query_id = "SELECT id_droits from utilisateurs WHERE (login='$p_loginc')";
 					$p_id_d_q = mysqli_query($conn, $p_query_id);
 					$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
 
@@ -80,7 +80,6 @@
 	<header>
 		<?php include('header.php'); ?>
 	</header>
-	<?php include "ham_menu.php";?>
 
 	<body>
 		<main>

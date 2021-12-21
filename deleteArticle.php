@@ -1,17 +1,3 @@
-<?php
-session_start();
-$_SESSION['id']= 1337;
-if($_SESSION['id'] == 1337){
-$user = $_SESSION['login'];
-
-$bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-$requete = mysqli_query($bdd,"SELECT * FROM articles");
-$result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
-    
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +7,17 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
     <link rel="stylesheet" href="style.css">
     <title>DeleteArticle</title>
 </head>
+
+<?php
+session_start();
+if($_SESSION['id']['id_droits'] == 1337){
+$user = $_SESSION['login'];
+
+$bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
+$requete = mysqli_query($bdd,"SELECT * FROM articles");
+$result = mysqli_fetch_all($requete,MYSQLI_ASSOC);   
+
+?>
 
 <body>
     <header>
@@ -75,5 +72,13 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
     <footer>
         <?php include "footer.php";?> 
     </footer>
+
+<?php
+}
+else{
+    echo"<h1 class= 'title'>Acces denied</h1>";
+}
+?>
+
 </body>
 </html>

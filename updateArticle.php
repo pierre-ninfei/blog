@@ -1,22 +1,3 @@
-<?php
-session_start();
-$_SESSION['id']= 1337;
-if($_SESSION['id'] == 1337){
-$user = $_SESSION['login'];
-$id = $_GET['id'];
-$bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-$req=mysqli_query($bdd,"SELECT * from articles  WHERE id = '$id' ");
-$res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-}
-
-   /*  ///////// mes varriables   \\\\\\\\  */
-   $artId= $res[0]['id'];
-   $artDet = $res[0]['article'];  
-   $artIdUser = $res[0]['id_utilisateur'];
-   $artIdCat = $res[0]['id_categorie'];
-   $artDate = $res[0]['date'];
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +7,25 @@ $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     <link rel="stylesheet" href="style.css">
     <title>UpdateArticles</title>
 </head>
+
+    <?php
+    session_start();
+    if($_SESSION['id']['id_droits'] == 1337){
+    $user = $_SESSION['login'];
+    $id = $_GET['id'];
+    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
+    $req=mysqli_query($bdd,"SELECT * from articles  WHERE id = '$id' ");
+    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
+    
+
+    /*  ///////// mes varriables   \\\\\\\\  */
+    $artId= $res[0]['id'];
+    $artDet = $res[0]['article'];  
+    $artIdUser = $res[0]['id_utilisateur'];
+    $artIdCat = $res[0]['id_categorie'];
+    $artDate = $res[0]['date'];
+
+    ?>
 
 <body>
     <header>
@@ -93,5 +93,13 @@ $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     <footer>
         <?php include "footer.php";?> 
     </footer>
+
+<?php
+}
+else{
+    echo"<h1 class= 'title'>Acces denied</h1>";
+}
+?>
+
 </body>
 </html>

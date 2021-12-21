@@ -1,19 +1,3 @@
-<?php
-session_start();
-$_SESSION['id']= 1337;
-if($_SESSION['id'] == 1337){
-$user = $_SESSION['login'];
-$id = $_GET['id'];
-$bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-$req=mysqli_query($bdd,"SELECT * from categories  WHERE id = '$id' ");
-$res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-}
-
-   /*  ///////// mes varriables   \\\\\\\\  */
-   $catId= $res[0]['id'];
-   $catNom = $res[0]['nom'];  
-  
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +7,21 @@ $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     <link rel="stylesheet" href="style.css">
     <title>UpdateACategorie</title>
 </head>
+
+    <?php
+    session_start();
+    if($_SESSION['id']['id_droits'] == 1337){
+    $user = $_SESSION['login'];
+    $id = $_GET['id'];
+    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
+    $req=mysqli_query($bdd,"SELECT * from categories  WHERE id = '$id' ");
+    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
+    
+
+    /*  ///////// mes varriables   \\\\\\\\  */
+    $catId= $res[0]['id'];
+    $catNom = $res[0]['nom'];  
+    ?>
 
 <body>
     <header>
@@ -75,5 +74,13 @@ $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     <footer>
         <?php include "footer.php";?> 
     </footer>
+
+<?php
+}
+else{
+    echo"<h1 class= 'title'>Acces denied</h1>";
+}
+?>
+
 </body>
 </html>

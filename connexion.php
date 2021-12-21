@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="style.css">
-		<title>Connectez vous au BLOG.</title>
-		<meta charset="utf-8">
-  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 		<link rel="stylesheet" href="style.css">
-	</head>
+<head>
+  <title>Connexion - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
+ <body>
+ <header>
+	<?php include('header.php'); ?>
+</header>
+	<?php include('ham_menu.php'); ?>	
 
 	<?php
 
@@ -54,7 +54,7 @@
 
 					//retrieve user's role ID
 
-					$p_query_id = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
+					$p_query_id = "SELECT id_droits from utilisateurs WHERE (login='$p_loginc')";
 					$p_id_d_q = mysqli_query($conn, $p_query_id);
 					$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
 
@@ -77,12 +77,6 @@
 	}
 	?>
 
-	<header>
-		<?php include('header.php'); ?>
-	</header>
-	<?php include "ham_menu.php";?>
-
-	<body>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 
 		<h1 class="p_i_intro_txt" > Connectez-vous </h1>

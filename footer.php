@@ -1,6 +1,5 @@
    <?php 
    //_________________display header according to connection status_________________//
-   session_start();
    echo "
    <div class='footer_container'>
       <div class='sitemap'>

@@ -14,12 +14,12 @@
    </div>
    ";
    
-   if($_SESSION["id"]==42 || $_SESSION["id"]==1337){
+   if($_SESSION['id']['id_droits']==42 || $_SESSION["id"]['id_droits']==1337){
       echo "<a href='creer-article.php'> Ecrire  </a>";
    } 
 
-   if(isset($_SESSION["login"])){
-      if($_SESSION["id"]==1337){
+   if(isset($_SESSION['login'])){
+      if($_SESSION["id"]['id_droits']==1337){
       echo "<a href='admin.php'> Admin </a>";
       }
       else{
@@ -30,7 +30,7 @@
       echo "<a href='inscription.php'> Inscription </a>";
    }
 
-   if(isset($_SESSION["login"])){
+   if(isset($_SESSION['login'])){
    echo "
    <form  class ='decoform'method='get'>  
          <input class='deco'  type='submit' name='deco' value='Se déconnecter'></input>
@@ -43,5 +43,12 @@
    session_destroy();
    header("Location:index.php");
    }
+
+   echo"
+   <div> <a href='javascript:void(0);' class='icon' onclick='myFunction()'> <i class='fa fa-bars'></i></a> </div> </nav>
+ ";
+
+ // Connect to DB //
+ include "db_link.php"; 
 ?>
 

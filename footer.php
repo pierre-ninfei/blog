@@ -6,23 +6,27 @@
          <a href='index.php'> Accueil </a>
          <a class='navA' href='articles.php'> Articles </a> ";
 
-   if($_SESSION["id"]==42){
-      echo "<a href='cree-article.php'> Ecrire  </a>";
-   } 
+   if(isset($_SESSION['id']['id_droits'])){
+      if($_SESSION["id"]['id_droits']==42){
+         echo "<a href='cree-article.php'> Ecrire  </a>";
+      } 
+   }
 
-   if(isset($_SESSION["connected"])){
-      if($_SESSION["id"]==1337){
-      echo "<a href='admin.php'> Admin </a>";
-      }
-      else{
-      echo "<a href='profil.php'> Profil </a>";
+   if(isset($_SESSION["login"])){
+      if(isset($_SESSION['id']['id_droits'])){
+         if($_SESSION["id"]['id_droits']==1337){
+            echo "<a href='admin.php'> Admin </a>";
+         }
+         else{
+            echo "<a href='profil.php'> Profil </a>";
+         }
       }
    } 
    else{
       echo "<a href='inscription.php'> Inscription </a>";
    }
 
-   if(isset($_SESSION["connected"])){
+   if(isset($_SESSION["login"])){
    echo "
    <form  class ='decoform_footer'method='get'>  
          <input class='deco_footer'  type='submit' name='deco' value='Se déconnecter'></input>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Admin - The BLOG</title>
   <?php include "head.php";?> 
@@ -8,7 +8,8 @@
     <header>
         <?php include "header.php";?>
     </header>
-
+    <?php include "ham_menu.php";?>
+    <main>
     <?php
     if($_SESSION['id']['id_droits'] == 1337){
 
@@ -149,7 +150,7 @@
             </tr>
         </table>
         </div></br>
-
+            </main>
     <footer>
         <?php include "footer.php";?> 
     </footer>

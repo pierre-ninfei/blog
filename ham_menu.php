@@ -8,17 +8,20 @@
           <a href='articles.php?Categorie=Design'>&nbsp Design</a>
          </div>
 <?php
-
-if($_SESSION["id"]==42 || $_SESSION["id"]==1337){
-   echo "<a href='creer-article.php'> Ecrire  </a>";
-} 
+if(isset($_SESSION['id'])){
+   if($_SESSION["id"]['id_droits']==42 || $_SESSION["id"]['id_droits']==1337){
+      echo "<a href='creer-article.php'> Ecrire  </a>";
+   } 
+}
 
 if(isset($_SESSION["login"])){
-   if($_SESSION["id"]==1337){
-   echo "<a href='admin.php'> Admin </a>";
-   }
-   else{
-   echo "<a href='profil.php'> Profil </a>";
+      if(isset($_SESSION['id'])){
+      if($_SESSION["id"]['id_droits']==1337){
+      echo "<a href='admin.php'> Admin </a>";
+      }
+      else{
+      echo "<a href='profil.php'> Profil </a>";
+      }
    }
 } 
 else{

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Connexion - The BLOG</title>
-  <?php include "head.php";?> 
- </head>  
+	<head>
+ 		<title>Connexion - The BLOG</title>
+  		<?php include "head.php";?> 
+	</head> 
+
+ 	<header>
+		<?php include'header.php'; ?>
+	</header>
 
 	<?php
-
-	session_start();
 
 	$p_errors = array();
 
@@ -72,10 +74,6 @@
 	}
 	?>
 
-	<header>
-		<?php include('header.php'); ?>
-	</header>
-
 	<body>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 
@@ -105,6 +103,6 @@
 	</body>
 	</main>
 	<footer>
-		<?php include('footer.php'); ?>
+		<?php include'footer.php'; ?>
 	</footer>
 </html>

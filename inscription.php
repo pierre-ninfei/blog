@@ -91,7 +91,7 @@
 	<header>
     	<?php include "header.php";?> 
   	</header>
-
+	  	<?php include "ham_menu.php";?>
 	<body>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 

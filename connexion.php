@@ -80,6 +80,7 @@
 	<header>
 		<?php include('header.php'); ?>
 	</header>
+	<?php include "ham_menu.php";?>
 
 	<body>
 		<main>

@@ -82,8 +82,11 @@ if(isset($_POST['envoyer'])){
 ?>
 
 <body>
-    <container class="mcontainer">
-        <form class = "mformprofil" action="" method="post">
+<main>
+<h1 class="sm_title"><i>The BLOG.  </i></h1> 
+	<h3 class="p_i_intro_txt"> Veuillez remplir les champs suivants pour modifier votre inscription </h3>
+    <container class="p_i_container">
+        <form class = "p_i_form" action="" method="post">
             <div>
                 <label for="login">Login :</label></br>
                 <input type="text" value= "<?php echo $user; ?>" name="login"/></br>
@@ -122,6 +125,7 @@ if(isset($_POST['envoyer'])){
         </form>
     </container>
 </body>
+            </main>
 
 <footer>
     <?php include "footer.php";?> 

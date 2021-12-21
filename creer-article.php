@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
- <head>
- <title>The BLOG</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
- </head>
+<head>
+  <title>Nouvel article - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
 
  <body>
 
  <?php 
  // DISPLAY PAGE IF CONNECTED
  session_start();
- if($_SESSION['id']=="42" || $_SESSION['id']=="1337" ){
+ if($_SESSION['id']['id_droits']=="42" || $_SESSION['id']['id_droits']=="1337" ){
 ?>
 
   <header>
     <?php include "header.php";?> 
   </header>
+  <?php include "ham_menu.php";?>
   <main>  
     <h1 class="title"><i>The BLOG.  </i></h1> 
 

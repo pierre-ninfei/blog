@@ -87,6 +87,7 @@ nav{
     flex-direction : column;
     justify-content: flex-start;
 }
+
 .dropdown_content {
     overflow: hidden;
     background-color: white;
@@ -94,7 +95,7 @@ nav{
     position : absolute;
     display : none;
     flex-direction: column;
-  }
+}
   
 .dropdown_content {
     background-color:transparent;
@@ -113,6 +114,72 @@ nav{
 .dropdownArticles:hover .navA {
     color : black;
 }
+
+/* Responsive Topnav */
+
+.active:hover {
+    background-color: #fff !important;
+}
+  
+nav .icon {
+    display: none;
+    background-color :transparent !important;
+}
+  
+@media screen and (max-width: 1200px) {
+    nav a {
+        display: none;
+    }
+    nav a.icon {
+        display:flex;
+        font-size : 25px;
+    }
+    nav{
+        justify-content: flex-end;
+    }
+    .ham_container.responsive {
+        display : flex  !important;
+        flex-direction :row;
+        justify-content: flex-end; 
+    }
+}
+
+/* Style the ham menu */
+
+.ham_container{
+    display : none;
+    flex-direction :row;
+    justify-content: flex-end;
+}
+  
+.ham a{
+    display : flex;
+    flex-direction : column;
+    }
+
+.ham {
+    overflow: hidden;
+    text-align:right;
+    z-index:2;
+    position : absolute;
+}
+
+/* Style the topnav links */
+.ham a {
+    font-family : monospace ;
+    color: white;
+    text-align: left;
+    padding: 10px 13px;
+    font-size : 20px;
+    text-decoration: none;
+    border-top: 1px solid transparent;
+    transition: all ease-in-out 300ms;  
+    margin-top: -15px;
+  }
+  
+  .submenu a{
+   color : rgb(223, 221, 221);
+  font-size: 18px;}
 
 /*______________ Footer ______________*/
 
@@ -158,7 +225,6 @@ footer a:visited:hover {
     font-size:12px;
     font-family : monospace;
     letter-spacing :0.01px;
-
 }
 
 .deco_footer {
@@ -173,7 +239,6 @@ footer a:visited:hover {
     margin-top: -3px;
     line-height : 15px; 
 }
-
 
 .deco_footer:hover {
     background-color : rgb(202, 202, 202);
@@ -229,6 +294,7 @@ footer {
     flex-direction :column;
     gap : 10px;
 }
+
 .index_articles article{
     background-color : lavender;
     width : 1200px;
@@ -239,6 +305,8 @@ footer {
     box-sizing: border-box;
     padding: 30px;
 }
+
+
 
 /*______________ Inscription ______________*/
 
@@ -445,7 +513,6 @@ main {
     background-color:rgb(194, 194, 255);
 }
 
-
 .booking_container textarea{
     height : 200px;
 }
@@ -457,7 +524,6 @@ main {
     background-color:rgb(194, 194, 255);
     padding: 10px;
     line-height: 26px;
-
 }
 
 .desc{
@@ -582,4 +648,27 @@ main {
     font-style : italic;
     font-size : 20px;
     padding-bottom : 10px;
+}
+
+/* /////////////////ADMIN PAGE\\\\\\\\\\\\\\\\\\ */
+
+.articlesInputs{
+    width: 50%;
+    display: flex;
+    justify-content:space-around;
+    margin: auto;
+}
+
+.articlescel{
+    width: 50%;
+    display: flex;
+    justify-content:space-around;
+    margin: auto;
+    flex-direction: column;
+}
+
+.return{
+    padding-left: 100px;
+    text-decoration: none;
+
 }

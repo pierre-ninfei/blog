@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="inscription.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<title>Inscrivez vous au BLOG.</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
+<head>
+  <title>Inscription - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
 
 	<?php 
 
@@ -91,7 +87,7 @@
 	<header>
     	<?php include "header.php";?> 
   	</header>
-	  	<?php include "ham_menu.php";?>
+
 	<body>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 

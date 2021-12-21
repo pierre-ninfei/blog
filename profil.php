@@ -29,26 +29,34 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
     /*  ///////// varriables   \\\\\\\\  */
 $login = $result[0]['login'];  
-$password = $result[0]['password'];
+$password_old = $result[0]['password'];
 $mail = $result[0]['email'];
 
     /*  ///////// conditions des changements des infos utilisateurs  \\\\\\\\  */
 if(isset($_POST['envoyer'])){
     $newlogin = $_POST['login'];
+    $old_password = $_POST['password_old'];
     $newpassword = $_POST['password'];
     $newpassword2 = $_POST['password2'];
     $newemail = $_POST['email'];
-    $neweamil2 = $_POST['email2'];
+    $newemail2 = $_POST['email2'];
 
-    if (isset($_POST['password']) && isset($_POST['password2'])){
-        if($newpassword == $newpassword2 ){
-            $npassword = password_hash($newpassword, PASSWORD_DEFAULT);
-            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET password = '$npassword' WHERE login = '$user'" );
+
+    if (isset($_POST['password']) && isset($_POST['password2']) && isset($_POST['password_old'])){
+        if(password_verify($old_password, $password_old) == true){
+            if($newpassword == $newpassword2 ){
+                $npassword = password_hash($newpassword, PASSWORD_DEFAULT);
+                $req = mysqli_query($conn,"UPDATE `utilisateurs` SET password = '$npassword' WHERE login = '$user'" );
+            }
+            else{
+                array_push($errors, "Veuillez saisir un mot de passe identique");
+            }
         }
         else{
-            array_push($errors, "Veuillez saisir un mot de passe identique");
+            array_push($errors, "Veuillez saisir l'ancien mot de passe");
         }
     }
+
     if (isset($_POST['email']) && isset($_POST['email2'])){
         if($newemail == $newemail2 ){
             $req = mysqli_query($conn,"UPDATE `utilisateurs` SET email = '$newemail' WHERE login = '$user'" );
@@ -58,15 +66,21 @@ if(isset($_POST['envoyer'])){
         }
     }
 
-   if (isset($_POST['login']) && $_POST['login'] != $result[0]['login']){   
+    if (isset($_POST['login']) && $_POST['login'] != $result[0]['login']){   
         $login = $_POST['login'];
         $newlogin = mysqli_query($conn,"UPDATE `utilisateurs` SET login = '$login' WHERE login ='$user' ");
-        $_SESSION['login'] = $login;
+        
+        
+    }
 
-        header('location: profil.php');
+    if(count($errors) == 0 && isset($_POST['envoyer'])){
+
+        $_SESSION['login'] = $login;
+        header('location: index.php');
     }
 }
 ?>
+
 <body>
     <container class="mcontainer">
         <form class = "mformprofil" action="" method="post">
@@ -75,8 +89,12 @@ if(isset($_POST['envoyer'])){
                 <input type="text" value= "<?php echo $user; ?>" name="login"/></br>
             </div>
             <div>
+                <label for="password">Ancien Password:</label></br>
+                <input type="password" value="<?php if(isset($_POST['password_old'])){echo $_POST['password_old'];}; ?>" name="password_old"></br>
+            </div>
+            <div>
                 <label for="password">Password :</label></br>
-                <input type="password" value="<?php echo $password ?>" name="password"></br>
+                <input type="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];}; ?>" name="password"></br>
             </div>
             <div>
                 <label for="password2">Password confirmation :</label></br>
@@ -84,7 +102,7 @@ if(isset($_POST['envoyer'])){
             </div>
             <div>
                 <label for="email">e-mail :</label></br>
-                <input type="email" value="<?php echo $mail ?>" name="email"/></br>
+                <input type="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];}; ?>" name="email"/></br>
             </div>
             <div>
                 <label for="email2">e-mail confirmation :</label></br>
@@ -100,6 +118,7 @@ if(isset($_POST['envoyer'])){
             <?php endforeach ?>
                 </div>
             <?php endif ?>
+            <?php /*test*/ ?>
         </form>
     </container>
 </body>
@@ -107,7 +126,4 @@ if(isset($_POST['envoyer'])){
 <footer>
     <?php include "footer.php";?> 
 </footer>
-
 </html>
-
-

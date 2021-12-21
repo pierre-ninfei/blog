@@ -462,3 +462,17 @@ main {
     margin: auto;
 }
 
+.articlescel{
+    width: 50%;
+    display: flex;
+    justify-content:space-around;
+    margin: auto;
+    flex-direction: column;
+}
+
+.return{
+    padding-left: 100px;
+    text-decoration: none;
+
+}
+

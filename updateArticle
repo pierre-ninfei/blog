@@ -1,13 +1,13 @@
 <?php
 session_start();
-$_SESSION['id']= 1337;
-if($_SESSION['id'] == 1337){
+$_SESSION['id']= 42;
+if($_SESSION['id'] == 42){
 $user = $_SESSION['login'];
 $id = $_GET['id'];
 $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-$req=mysqli_query($bdd,"SELECT * from utilisateurs  WHERE id = '$id' ");
+$req=mysqli_query($bdd,"SELECT * from articles  WHERE id = '$id' ");
 $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-$asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id` ASC");
+$asc=mysqli_query($bdd,"SELECT * FROM `articles`");
 }
 
 
@@ -19,7 +19,7 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Update</title>
+    <title>UpdateArticles</title>
 </head>
 
 <body>
@@ -34,13 +34,13 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
 
      
 
-        <h3 style="text-align: center; color: white;">Saisir les modifications utilisateur</h3></br>
+        <h3 style="text-align: center; color: white;">Modifier un article</h3></br>
         <div class= "articlesInputs">
         <table> 
             <form  method = "post" > 
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Article</th>
             </tr>
 
                 <?php 
@@ -85,7 +85,7 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
                     header('location: admin.php');
                     }
     }  
-      
+        var_dump($id_droits);
                 echo '
                 <tr>
                 <td>'.$userId.'</td>
@@ -95,8 +95,8 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
                 
                 ?>  
                 <tr>
-                <th>Password</th>
-                <th>Password Confirmation </th>
+                <th>Catégorie</th>
+                <th>Date</th>
                 </tr>
 
                 <?php
@@ -105,19 +105,7 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
                 <td><input type="text" placeholder="entrer un nouveau password" name = "confpassword"></td>
                 </tr>';
                 ?>
-                <tr>
-                <th>Email</th>
-                <th>Email Confirmation</th>
                 
-                </tr>
-                <?php
-                echo'
-                <tr>
-                <td><input type="text" value="'.$email.'" name = "email"></td>
-                <td><input type="text" placeholder="entrer un nouveau email" name = "confemail"></td>
-                
-                </tr>'; 
-                ?>
                 <tr>
                 <th>Id Droits</th>
                 <th>Update</th>
@@ -136,7 +124,8 @@ $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id
                 </form> 
         </table>
     </div>
-    <a class="return" href="admin.php">⬅retour</a>
+    
+
     <footer>
         <?php include "footer.php";?> 
     </footer>

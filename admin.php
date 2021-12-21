@@ -1,45 +1,28 @@
 <?php
 session_start();
-$_SESSION['id']= 42;
-if($_SESSION['id'] == 42){
+$_SESSION['id']= 1337;
+if($_SESSION['id'] == 1337){
 
 $user = $_SESSION['login'];
 
 $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
+
+        ///////////////requetes uilisateurs\\\\\\\\\\\\\\\\
+
 $requete = mysqli_query($bdd,"SELECT * FROM utilisateurs ORDER BY `id_droits` DESC");
 $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
 
+        ///////////////requetes articles\\\\\\\\\\\\\\\\
 
-     /*  ///////// conditions des changements des infos utilisateurs  \\\\\\\\  */
+$reqArt = mysqli_query($bdd,"SELECT * FROM articles");
+$resArt = mysqli_fetch_all($reqArt,MYSQLI_ASSOC);
 
+        ///////////////requetes catégories\\\\\\\\\\\\\\\\
 
-    
-    if (isset($_POST['updateArticle'])){
-            $req = mysqli_query($bdd,"UPDATE `articles` SET article ='hello', date = NOW() WHERE id = 4 ");
-    }
+ $reqCat = mysqli_query($bdd,"SELECT * FROM categories  ORDER BY `categories`.`id` ASC");
+ $resCat = mysqli_fetch_all($reqCat,MYSQLI_ASSOC);
 
-    if(isset($_POST['deleteArticle'])){
-        $req = mysqli_query($bdd,"DELETE FROM articles WHERE id = 4");
-    }
-
-    if(isset($_POST['createArticle'])){
-        $req = mysqli_query($bdd,"INSERT INTO  articles (id,article, id_utilisateur, id_categorie, date) VALUES ('4','sfftzfs','3','3', NOW())");
-    }
-
-    if (isset($_POST['updateUtilisateur'])){
-        
-        $newname = $_POST['name'];
-        $newpassword = $_POST['password'];
-        $newemail = $_POST['email'];
-        $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET login = '$newname', password = '$newpassword', email = '$newemail'");
-    }
-
-    if(isset($_POST['deleteUtilisateur'])){
-        $req = mysqli_query($bdd,"DELETE FROM utilisateurs WHERE id = 1");
-        header("location:admin.php"); 
-        
-    }
 
 }
 ?>
@@ -75,8 +58,9 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
                 <th>Password</th>
                 <th>Email</th>
                 <th>Droits</th>
-                <th>Update</th>
                 <th>Delete</th>
+                <th>Update</th>
+                
             
             </tr>
         
@@ -104,27 +88,73 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
 
             <!-- //////////////////// gestion des Articles \\\\\\\\\\\\\\\\\ -->
+
         <h3 style="text-align: center; color: white;">Articles</h3></br>
-        <form method="post" class= "articlesInputs">
-            <input name="updateArticle" type="submit" value="update">
-            <input name="deleteArticle" type="submit" value="delete">
-            <input name="createArticle" type="submit" value="create">
-        </form></br></br>
-
-            <!-- //////////////////// gestion des Catégories \\\\\\\\\\\\\\\\\ -->
-
-        <h3 style="text-align: center; color: white;">Catégories</h3></br>
         <div class= "articlesInputs">
-            <input name="updateCategorie" type="button" value="update">
-            <input name="deleteCategorie" type="button" value="delete">
-            <input name="createCategorie" type="button" value="create">
-        </div></br></br>
-
+        <table>
             
+            <tr>
+                <th>Id</th>
+                <th>Articles</th>
+                <th>Catégories</th>
+                <th>date</th>
+                <th>Delete</th>
+                <th>Update</th>
+                
+            </tr>
+        
+            <?php 
 
+            foreach($resArt as $articles => $article) {
+            
+                    echo'<tr>
+                        <td>'.$article['id'].'</td>
+                        <td>'.$article['article'].'</td>
+                        <td>'.$article['id_categorie'].'</td>
+                        <td>'.$article['date'].'</td>
+                        <td><a href="deleteArticle.php?id='.$article['id'].'">Delete</a></td>
+                        <td><a href="updateArticle.php?id='.$article['id'].'">Update</a></td>
+                        </tr>'; 
+                } 
+            ?></br>
+            <tr>
+            <td><a href="creer-article.php">create article</a></td>
+            </tr>
+        </table>
+        </div></br>
        
 
-    
+            <!-- //////////////////// gestion des Catégories \\\\\\\\\\\\\\\\\ -->
+            <h3 style="text-align: center; color: white;">Catégories</h3></br>
+
+        <div class= "articlesInputs">
+        <table>
+            
+            <tr>
+                <th>Id</th>
+                <th>Name</th> 
+                <th>Delete</th>
+                <th>Update</th>
+               
+            </tr>
+        
+            <?php 
+
+            foreach($resCat as $categories => $categorie) {
+            
+                    echo'<tr>
+                        <td>'.$categorie['id'].'</td>
+                        <td>'.$categorie['nom'].'</td>
+                        <td><a href="deleteCategorie.php?id='.$categorie['id'].'">Delete</a></td>
+                        <td><a href="updateCategorie.php?id='.$categorie['id'].'">Update</a></td>
+                        </tr>'; 
+                } 
+            ?></br>
+            <tr>
+            <td><a href="createCategorie.php">create catégorie</a></td>
+            </tr>
+        </table>
+        </div></br>
 
     <footer>
         <?php include "footer.php";?> 

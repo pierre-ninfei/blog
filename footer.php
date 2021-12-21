@@ -13,12 +13,12 @@
    }
 
    if(isset($_SESSION["login"])){
-      if(isset($_SESSION['id']['id_droits']))
+      if(isset($_SESSION['id']['id_droits'])){
          if($_SESSION["id"]['id_droits']==1337){
-         echo "<a href='admin.php'> Admin </a>";
+            echo "<a href='admin.php'> Admin </a>";
          }
          else{
-         echo "<a href='profil.php'> Profil </a>";
+            echo "<a href='profil.php'> Profil </a>";
          }
       }
    } 

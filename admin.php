@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Admin - The BLOG</title>
   <?php include "head.php";?> 
@@ -8,8 +8,7 @@
     <header>
         <?php include "header.php";?>
     </header>
-    <?php include "ham_menu.php";?>
-    <main>
+
     <?php
     if($_SESSION['id']['id_droits'] == 1337){
 
@@ -66,7 +65,7 @@
                     echo'<tr>
                         <td>'.$value['id'].'</td>
                         <td>'.$value['login'].'</td>
-                        <td>'.$value['password'].'</td>
+                        <td>'.substr($value['password'],0,20).'..</td>
                         <td>'.$value['email'].'</td>
                         <td>'.$value['id_droits'].'</td>
                         <td><a href="deleteUser.php?id='.$value['id'].'">Delete</a></td>
@@ -150,7 +149,7 @@
             </tr>
         </table>
         </div></br>
-            </main>
+
     <footer>
         <?php include "footer.php";?> 
     </footer>

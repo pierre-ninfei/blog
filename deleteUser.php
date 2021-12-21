@@ -58,7 +58,7 @@
                 <tr>
                 <td>'.$res[0]['id'].'</td>
                 <td>'.$res[0]['login'].'</td>
-                <td>'.$res[0]['password'].'</td>
+                <td>'.substr($res[0]['password'],0,20).'..</td>
                 <td>'.$res[0]['email'].'</td>
                 <td>'.$res[0]['id_droits'].'</td>
                 <td><input name="deleteUtilisateur" type="submit" value="delete"></td>

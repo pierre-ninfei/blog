@@ -5,16 +5,16 @@
       <div class='sitemap'>
          <a href='index.php'> Accueil </a>
          <a class='navA' href='articles.php'> Articles </a> ";
-         
-   if(isset$_SESSION['id']){
-      if($_SESSION["id"]==42){
+
+   if(isset($_SESSION['id']['id_droits'])){
+      if($_SESSION["id"]['id_droits']==42){
          echo "<a href='cree-article.php'> Ecrire  </a>";
       } 
    }
 
    if(isset($_SESSION["login"])){
-      if(isset($_SESSION['id']))
-         if($_SESSION["id"]==1337){
+      if(isset($_SESSION['id']['id_droits']))
+         if($_SESSION["id"]['id_droits']==1337){
          echo "<a href='admin.php'> Admin </a>";
          }
          else{

@@ -111,7 +111,7 @@ $i = 0;
 //_________________add COMMENT_________________//
 
 $comment = $_POST["comment"];
-$id_user = 1;
+$id_user = $_SESSION['idu'];
 
 $toDate = date_format(date_create($toDate),'Y-m-d  H:i');
 $toDate =strftime('%Y-%m-%dT%H:%M', strtotime($toDate));

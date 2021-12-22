@@ -39,15 +39,12 @@
    session_destroy();
    header("Location:index.php");
    }
-   echo "
+   echo "<a href='https://github.com/pierre-ninfei/blog' target ='_blank' class='fa fa-github'></a>
          </div>
       <div class ='social'>
       </div>
    </div>
-   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés </br> <a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a>  <p>
-   
-
-   "
+   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés <p>"
 ?>
 
 <!-- <a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a>  -->

@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Admin</title>
-</head>
+  <title>Admin - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
+<body>
+    <header>
+        <?php include "header.php";?>
+    </header>
+    <?php include "ham_menu.php";?>
+    <main>
     <?php
     if($_SESSION['id']['id_droits'] == 1337){
 
     $user = $_SESSION['login'];
-
+    $tronc = substr($article['article'],0 ,30);
     include 'db_link.php';
+    
             ///////////////requetes uilisateurs\\\\\\\\\\\\\\\\
 
-    $requete = mysqli_query($bdd,"SELECT * FROM utilisateurs ORDER BY `id_droits` DESC");
+    $requete = mysqli_query($conn,"SELECT * FROM utilisateurs ORDER BY `id_droits` DESC");
     $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
 
             ///////////////requetes articles\\\\\\\\\\\\\\\\
 
-    $reqArt = mysqli_query($bdd,"SELECT * FROM articles");
+    $reqArt = mysqli_query($conn,"SELECT * FROM articles");
     $resArt = mysqli_fetch_all($reqArt,MYSQLI_ASSOC);
 
             ///////////////requetes catégories\\\\\\\\\\\\\\\\
 
-    $reqCat = mysqli_query($bdd,"SELECT * FROM categories  ORDER BY `categories`.`id` ASC");
+    $reqCat = mysqli_query($conn,"SELECT * FROM categories  ORDER BY `categories`.`id` ASC");
     $resCat = mysqli_fetch_all($reqCat,MYSQLI_ASSOC);
-
-
     
     ?>
-<body>
-    <header>
-        <?php include "header.php";?>
-    </header>
+
 
         <h2 style="text-align: center; color: white;">PROFIL ADMIN</h2></br>
 
@@ -105,7 +104,7 @@
             
                     echo'<tr>
                         <td>'.$article['id'].'</td>
-                        <td>'.$article['article'].'</td>
+                        <td>'.substr($article['article'],0 ,20).'..</td>
                         <td>'.$article['id_categorie'].'</td>
                         <td>'.$article['date'].'</td>
                         <td><a href="deleteArticle.php?id='.$article['id'].'">Delete</a></td>
@@ -151,7 +150,7 @@
             </tr>
         </table>
         </div></br>
-
+            </main>
     <footer>
         <?php include "footer.php";?> 
     </footer>

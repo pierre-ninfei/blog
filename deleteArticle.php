@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>DeleteArticle</title>
-</head>
+  <title>Delete article - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
 
 <?php
 session_start();
@@ -58,7 +55,7 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
                 echo '
                 <tr>
                 <td>'.$res[0]['id'].'</td>
-                <td>'.$res[0]['article'].'</td>
+                <td>'.substr($res[0]['article'],0 ,20).'..</td>
                 <td>'.$res[0]['id_utilisateur'].'</td>
                 <td>'.$res[0]['id_categorie'].'</td>
                 <td>'.$res[0]['date'].'</td>

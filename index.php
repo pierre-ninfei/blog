@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
  <head>
- <title>The BLOG</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
- </head>
+  <title>Accueil - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
  <body>
   <header>
     <?php include "header.php";?> 
   </header>
+    <?php include "ham_menu.php";?>
   <main>  
   <h1 class="title"><i>The BLOG.  </i></h1> 
   <div class='index_articles'>
@@ -39,8 +37,8 @@ $users = $query->fetch_all();
 
 $i = 0;
 foreach(array_reverse($articles) as $article){
-  echo "<div >
-          <article >";
+  echo "<div class ='ArtC'>
+          <article>";
   foreach($users as $user){
     if ($article[2] == $user[0]){
       $uname = $user[1];
@@ -58,8 +56,7 @@ foreach(array_reverse($articles) as $article){
           </form>
       </div>
     </div>
-    <div > &nbsp&nbsp $article[1]
-    </div>
+    <div class='ABody'> &nbsp&nbsp $article[1]</div>
   </div>
   </div>
   </article>
@@ -79,5 +76,6 @@ foreach(array_reverse($articles) as $article){
   <footer>
     <?php include "footer.php";?> 
   </footer>
+    
 </body>
 </html>

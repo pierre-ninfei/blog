@@ -87,6 +87,7 @@ nav{
     flex-direction : column;
     justify-content: flex-start;
 }
+
 .dropdown_content {
     overflow: hidden;
     background-color: white;
@@ -94,7 +95,7 @@ nav{
     position : absolute;
     display : none;
     flex-direction: column;
-  }
+}
   
 .dropdown_content {
     background-color:transparent;
@@ -113,6 +114,72 @@ nav{
 .dropdownArticles:hover .navA {
     color : black;
 }
+
+/* Responsive Topnav */
+
+.active:hover {
+    background-color: #fff !important;
+}
+  
+nav .icon {
+    display: none;
+    background-color :transparent !important;
+}
+  
+@media screen and (max-width: 1200px) {
+    nav a {
+        display: none;
+    }
+    nav a.icon {
+        display:flex;
+        font-size : 25px;
+    }
+    nav{
+        justify-content: flex-end;
+    }
+    .ham_container.responsive {
+        display : flex  !important;
+        flex-direction :row;
+        justify-content: flex-end; 
+    }
+}
+
+/* Style the ham menu */
+
+.ham_container{
+    display : none;
+    flex-direction :row;
+    justify-content: flex-end;
+}
+  
+.ham a{
+    display : flex;
+    flex-direction : column;
+    }
+
+.ham {
+    overflow: hidden;
+    text-align:right;
+    z-index:2;
+    position : absolute;
+}
+
+/* Style the topnav links */
+.ham a {
+    font-family : monospace ;
+    color: white;
+    text-align: left;
+    padding: 10px 13px;
+    font-size : 20px;
+    text-decoration: none;
+    border-top: 1px solid transparent;
+    transition: all ease-in-out 300ms;  
+    margin-top: -15px;
+  }
+  
+  .submenu a{
+   color : rgb(223, 221, 221);
+  font-size: 18px;}
 
 /*______________ Footer ______________*/
 
@@ -158,7 +225,6 @@ footer a:visited:hover {
     font-size:12px;
     font-family : monospace;
     letter-spacing :0.01px;
-
 }
 
 .deco_footer {
@@ -173,7 +239,6 @@ footer a:visited:hover {
     margin-top: -3px;
     line-height : 15px; 
 }
-
 
 .deco_footer:hover {
     background-color : rgb(202, 202, 202);
@@ -198,6 +263,15 @@ footer a:visited:hover {
 
 /*______________ Index ______________*/
 
+.post_info{
+    width : 100%;
+    font-style : italic;
+}
+
+.read_more{
+    width: 100px;
+}
+
 .title{
     display : flex;
     flex-direction: column;
@@ -220,14 +294,21 @@ footer {
     flex-direction :column;
     gap : 10px;
 }
+
 .index_articles article{
     background-color : lavender;
-    height : 400px;
     width : 1200px;
+    display : flex ; 
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+    box-sizing: border-box;
+    padding: 30px;
 }
 
-/*______________ Inscription ______________*/
 
+
+/*______________ Inscription ______________*/
 
 .p_i_container {
     display : flex;
@@ -288,7 +369,15 @@ footer {
     text-align : center;
     color : white;  
     font-weight : bold;
-    font-size : 30px;
+    font-size : 20px;
+    padding : 10px;
+}
+
+.p_i_container2 {
+    display : flex;
+    flex-direction: row;
+    justify-content:  center;
+    align-items:center;
 }
 
 /*______________ Planning ______________*/
@@ -325,7 +414,6 @@ tr{
     height : 40px;
     overflow: hidden;
     table-layout: fixed;
-
 }
 
 .weekSelect form{
@@ -391,7 +479,27 @@ main a{
     cursor: pointer;
 }
 
-/*______________ Reservation form ______________*/
+/*______________ New article ______________*/
+
+.new_articles{
+    display : flex;
+    flex-direction :column;
+    gap : 10px;
+}
+.new_articles article{
+    background-color : lavender;
+    height : 500px;
+    width : 1200px;
+    display : flex ; 
+    flex-direction: column;
+    justify-content:  center;
+    align-items:center;
+}
+
+select {
+    color : grey;
+    font-family : arial;
+}
 
 main {
     display : flex;
@@ -407,19 +515,22 @@ main {
     align-items: center;
     font-family: monospace;
     font-size : 15px;
-    width : 300px;
+    width : 600px;
     font-size : 17px;
-    background-color:lavenderblush;
+    background-color:rgb(194, 194, 255);
+}
+
+.booking_container textarea{
+    height : 200px;
 }
 
 .booking_container form{
     display : flex;
     flex-direction : column;
-    width : 200px;
-    background-color:lavenderblush;
+    width : 300px;
+    background-color:rgb(194, 194, 255);
     padding: 10px;
     line-height: 26px;
-
 }
 
 .desc{
@@ -452,6 +563,99 @@ main {
     font-size : 65px;   
 }
 
+/*______________ Articles ______________*/
+
+.info_article{
+    display :flex;
+    flex-direction : row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width : 100%;
+    gap : 850px;
+    font-size : 20px;
+    line-height : 35px;
+    padding-bottom : 4px;
+    margin-top : -20px;
+}
+
+.info_article button{
+    border :none;
+    font-size : 16px;
+    padding : 5px;
+    background-color:rgb(217, 206, 255);
+    cursor : pointer;
+}
+
+.info_article button:hover{
+    background-color:rgb(186, 168, 252);
+}
+.art_cat{
+    margin-top : -150px;
+    margin-bottom : 122px;
+}
+
+.art_cat input{
+    border :none;
+    font-family : monospace;
+    font-size : 15px;
+}
+
+.art_cat input:hover{
+    background-color : rgb(217, 206, 255);
+    cursor : pointer;
+}
+
+.art_arr{
+    display : flex;
+    gap : 1150px;
+    color : black;
+    padding-top: 20px;
+    margin-bottom: -20px;
+}
+
+.art_arr i:visited{
+    color : black;
+}
+
+.art_arr i:visited:hover{
+    color : lavender;
+}
+
+.art_arr i:hover{
+    color : lavender;
+}
+
+#right {    
+    cursor: pointer;
+}
+
+#left {    
+    cursor: pointer;
+}
+
+/*______________ Commentaires ______________*/
+
+.coms{
+    display : flex;
+    flex-direction : row;
+    gap : 10px;
+}
+.com_Art article{
+    display : flex;
+    flex-direction : column;
+    width : 393.5px;
+}
+
+.comments article{
+    background-color :rgb(208, 208, 255);
+    font-size : 24px;
+}
+
+.com_info{
+    font-style : italic;
+    font-size : 20px;
+    padding-bottom : 10px;
+}
 
 /* /////////////////ADMIN PAGE\\\\\\\\\\\\\\\\\\ */
 
@@ -475,4 +679,3 @@ main {
     text-decoration: none;
 
 }
-

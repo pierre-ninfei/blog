@@ -42,10 +42,10 @@
    echo "
          </div>
       <div class ='social'>
+      <a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a> 
       </div>
    </div>
-   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés<p></br>
-   <a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a> 
+   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés<p>
 
    "
 ?>

@@ -47,7 +47,8 @@
    <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés<p>
 
    "
-//    <a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a> //
-
 ?>
+
+<a class = 'github' href='https://github.com/pierre-ninfei/blog'> Github </a> 
+
 

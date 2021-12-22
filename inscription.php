@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Inscription - The BLOG</title>
-  <?php include "head.php";?> 
- </head>  
+	<head>
+		<title>Inscription - The BLOG</title>
+  		<?php include "head.php";?> 
+	</head>
 
 	<?php 
 
@@ -83,12 +83,11 @@
 		}
 	}
 	?>
-
+	<body>
 	<header>
     	<?php include "header.php";?> 
   	</header>
-
-	<body>
+	  	<?php include "ham_menu.php";?>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 
 		<h3 class="p_i_intro_txt"> Veuillez remplir les champs suivants afin de compléter votre inscription </h3>

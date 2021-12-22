@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-	<head>
- 		<title>Connexion - The BLOG</title>
-  		<?php include "head.php";?> 
-	</head> 
-
- 	<header>
-		<?php include'header.php'; ?>
-	</header>
+<head>
+  <title>Connexion - The BLOG</title>
+  <?php include "head.php";?> 
+ </head>  
+ <body>
+ <header>
+	<?php include('header.php'); ?>
+</header>
+	<?php include('ham_menu.php'); ?>	
 
 	<?php
+
+	session_start();
 
 	$p_errors = array();
 
@@ -74,7 +77,6 @@
 	}
 	?>
 
-	<body>
 		<main>
 		<h1 class="sm_title"><i>The BLOG.  </i></h1> 
 		<h1 class="p_i_intro_txt" > Connectez-vous </h1>
@@ -103,6 +105,6 @@
 	</body>
 	</main>
 	<footer>
-		<?php include'footer.php'; ?>
+		<?php include('footer.php'); ?>
 	</footer>
 </html>

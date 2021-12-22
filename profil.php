@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Profil</title>
+<title>Profil - The BLOG</title>
+  <?php include "head.php";?> 
 </head>
+<body>
 <header>
     <?php include "header.php";?>     
 </header>
-
+<?php include "ham_menu.php";?>
+  <main>  
 <?php
 
 // si l'utilisateur n'est pas connecté
@@ -81,36 +82,17 @@ if(isset($_POST['envoyer'])){
 }
 ?>
 
-<body>
-<main>
 <h1 class="sm_title"><i>The BLOG.  </i></h1> 
-	<h3 class="p_i_intro_txt"> Veuillez remplir les champs suivants pour modifier votre inscription </h3>
-    <container class="p_i_container">
+	<h3 class="p_i_intro_txt"> Veuillez remplir les champs suivants pour modifier votre profil </h3>
+    <container class="p_i_container2">
         <form class = "p_i_form" action="" method="post">
-            <div>
-                <label for="login">Login :</label></br>
+                <label for="login">Login :</label>
                 <input type="text" value= "<?php echo $user; ?>" name="login"/></br>
-            </div>
-            <div>
-                <label for="password">Ancien Password:</label></br>
-                <input type="password" value="<?php if(isset($_POST['password_old'])){echo $_POST['password_old'];}; ?>" name="password_old"></br>
-            </div>
-            <div>
-                <label for="password">Password :</label></br>
-                <input type="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];}; ?>" name="password"></br>
-            </div>
-            <div>
-                <label for="password2">Password confirmation :</label></br>
-                <input  type ="password" placeholder="password confirmation" name="password2"/></br>
-            </div>
-            <div>
-                <label for="email">e-mail :</label></br>
+                <label for="email">e-mail :</label>
                 <input type="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];}; ?>" name="email"/></br>
-            </div>
-            <div>
-                <label for="email2">e-mail confirmation :</label></br>
+                <label for="email2">e-mail confirmation :</label>
                 <input type="email" placeholder= "e-mail confirmation" name="email2"/></br>
-            </div><br>
+          <br>
             <div class="button">
                 <button type="submit" name= "envoyer">Soumettre</button>
             </div>
@@ -121,7 +103,25 @@ if(isset($_POST['envoyer'])){
             <?php endforeach ?>
                 </div>
             <?php endif ?>
-            <?php /*test*/ ?>
+        </form>
+        <form class = "p_i_form" action="" method="post">
+                <label for="password">Ancien Password:</label>
+                <input type="password" value="<?php if(isset($_POST['password_old'])){echo $_POST['password_old'];}; ?>" name="password_old"></br>
+                <label for="password">Password :</label>
+                <input type="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];}; ?>" name="password"></br>
+                <label for="password2">Password confirmation :</label>
+                <input  type ="password" placeholder="password confirmation" name="password2"/></br>
+          <br>
+            <div class="button">
+                <button type="submit" name= "envoyer">Soumettre</button>
+            </div>
+            <?php if(count($errors) > 0) : ?>
+                <div>
+            <?php foreach($errors as $error) : ?>
+                <p style="color:red;"> <?php echo $error; ?> </p>
+            <?php endforeach ?>
+                </div>
+            <?php endif ?>
         </form>
     </container>
 </body>

@@ -4,14 +4,19 @@
   <title>Update Categorie - The BLOG</title>
   <?php include "head.php";?> 
  </head>  
-
+<body>
+    <header>
+        <?php include "header.php";?>
+    </header>
+        <?php include "ham_menu.php"; ?>
+    
     <?php
     session_start();
     if($_SESSION['id']['id_droits'] == 1337){
     $user = $_SESSION['login'];
     $id = $_GET['id'];
-    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-    $req=mysqli_query($bdd,"SELECT * from categories  WHERE id = '$id' ");
+    include 'db_link.php';
+    $req=mysqli_query($conn,"SELECT * from categories  WHERE id = '$id' ");
     $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     
 
@@ -20,10 +25,7 @@
     $catNom = $res[0]['nom'];  
     ?>
 
-<body>
-    <header>
-        <?php include "header.php";?>
-    </header>
+
         
             <!-- //////////////////// gestion de categorie \\\\\\\\\\\\\\\\\ -->
 

@@ -5,13 +5,18 @@
   <?php include "head.php";?> 
  </head>  
 
+<body>
+    <header>
+        <?php include "header.php";?>
+    </header>
+        <?php include "ham_menu.php"; ?>
+
     <?php
-    session_start();
     if($_SESSION['id']['id_droits'] == 1337){
     $user = $_SESSION['login'];
     $id = $_GET['id'];
-    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-    $req=mysqli_query($bdd,"SELECT * from articles  WHERE id = '$id' ");
+    include 'db_link.php';
+    $req=mysqli_query($conn,"SELECT * from articles  WHERE id = '$id' ");
     $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
     
 
@@ -23,11 +28,6 @@
     $artDate = $res[0]['date'];
 
     ?>
-
-<body>
-    <header>
-        <?php include "header.php";?>
-    </header>
         
             <!-- //////////////////// gestion des Utilisateurs \\\\\\\\\\\\\\\\\ -->
 

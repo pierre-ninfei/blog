@@ -5,22 +5,23 @@
   <title>Delete Categorie - The BLOG</title>
   <?php include "head.php";?> 
  </head>  
-
-    <?php
-    session_start();
-    if($_SESSION['id']['id_droits'] == 1337){
-    $user = $_SESSION['login'];
-
-    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-    $requete = mysqli_query($bdd,"SELECT * FROM categories");
-    $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);   
-   
-    ?>
-
 <body>
     <header>
         <?php include "header.php";?>
     </header>
+        <?php include "ham_menu.php"; ?>
+
+    <?php
+    if($_SESSION['id']['id_droits'] == 1337){
+    $user = $_SESSION['login'];
+
+    include 'db_link.php';
+    $requete = mysqli_query($conn,"SELECT * FROM categories");
+    $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);   
+   
+    ?>
+
+
 
 
         <H2></H2>

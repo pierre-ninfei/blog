@@ -4,23 +4,23 @@
   <title>Update User - The BLOG</title>
   <?php include "head.php";?> 
  </head>  
-
-    <?php
-    session_start();
-    if($_SESSION['id']['id_droits'] == 1337){
-    $user = $_SESSION['login'];
-    $id = $_GET['id'];
-    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-    $req=mysqli_query($bdd,"SELECT * from utilisateurs  WHERE id = '$id' ");
-    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-    $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id` ASC");
-    
-    ?>
-
 <body>
     <header>
         <?php include "header.php";?>
     </header>
+        <?php include "ham_menu.php"; ?>
+
+    <?php
+    if($_SESSION['id']['id_droits'] == 1337){
+    $user = $_SESSION['login'];
+    $id = $_GET['id'];
+    include 'db_link.php';
+    $req=mysqli_query($conn,"SELECT * from utilisateurs  WHERE id = '$id' ");
+    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
+    $asc=mysqli_query($conn,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id` ASC");
+    
+    ?>
+
 
 
         <H2></H2>
@@ -57,25 +57,25 @@
                 
                     if (isset($_POST['password']) && isset($_POST['confpassword'])){
                         if($newpassword == $confpassword){
-                            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET password = '$newpassword' WHERE `id`= '$id'" );
+                            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET password = '$newpassword' WHERE `id`= '$id'" );
                         }
                     }
 
                     if (isset($_POST['email']) && isset($_POST['confemail'])){
                         if($newemail== $confemail){
-                            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET email = '$newemail' WHERE `id`= '$id'" );
+                            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET email = '$newemail' WHERE `id`= '$id'" );
                         }
                     }
 
                     if (isset($_POST['droits'])){
-                            $req = mysqli_query($bdd,"UPDATE `utilisateurs` SET id_droits = '$newid_droits' WHERE `id`= '$id'" );
+                            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET id_droits = '$newid_droits' WHERE `id`= '$id'" );
                             $id_droits = $newid_droits;
                             header('location: admin.php');
                     }
                 
                     if (isset($_POST['name']) && $_POST['name'] != $login){   
                     $login = $_POST['name'];
-                    $newusername = mysqli_query($bdd,"UPDATE `utilisateurs` SET login = '$login' WHERE `id`= '$id' ");
+                    $newusername = mysqli_query($conn,"UPDATE `utilisateurs` SET login = '$login' WHERE `id`= '$id' ");
                     $_SESSION['name'] = $login;
                     header('location: admin.php');
                     }

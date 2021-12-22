@@ -4,22 +4,24 @@
 <head>
   <title>Create User - The BLOG</title>
   <?php include "head.php";?> 
- </head>  
-
-    <?php
-    session_start();
-    if($_SESSION['id']['id_droits'] == 1337){
-    $users = $_SESSION['login'];
-    $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
-    $req=mysqli_query($bdd,"SELECT * from utilisateurs");
-    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-    
-    ?>
-
+</head>  
 <body>
     <header>
         <?php include "header.php";?>
     </header>
+        <?php include "ham_menu.php"; ?>
+
+    <?php
+
+    if($_SESSION['id']['id_droits'] == 1337){
+    $users = $_SESSION['login'];
+    include 'db_link.php';
+    $req=mysqli_query($conn,"SELECT * from utilisateurs");
+    $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
+    
+    ?>
+
+
  
             <!-- //////////////////// gestion des Utilisateurs \\\\\\\\\\\\\\\\\ -->
 

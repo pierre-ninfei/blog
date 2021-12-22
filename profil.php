@@ -89,20 +89,13 @@ if(isset($_POST['envoyer'])){
                 <label for="login">Login :</label>
                 <input type="text" value= "<?php echo $user; ?>" name="login"/></br>
                 <label for="email">e-mail :</label>
-                <input type="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];}; ?>" name="email"/></br>
+                <input type="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} elseif(isset($mail)){ echo $mail;}; ?>" name="email"/></br>
                 <label for="email2">e-mail confirmation :</label>
                 <input type="email" placeholder= "e-mail confirmation" name="email2"/></br>
           <br>
             <div class="button">
                 <button type="submit" name= "envoyer">Soumettre</button>
             </div>
-            <?php if(count($errors) > 0) : ?>
-                <div>
-            <?php foreach($errors as $error) : ?>
-                <p style="color:red;"> <?php echo $error; ?> </p>
-            <?php endforeach ?>
-                </div>
-            <?php endif ?>
         </form>
         <form class = "p_i_form" action="" method="post">
                 <label for="password">Ancien Password:</label>
@@ -115,15 +108,15 @@ if(isset($_POST['envoyer'])){
             <div class="button">
                 <button type="submit" name= "envoyer">Soumettre</button>
             </div>
-            <?php if(count($errors) > 0) : ?>
-                <div>
-            <?php foreach($errors as $error) : ?>
-                <p style="color:red;"> <?php echo $error; ?> </p>
-            <?php endforeach ?>
-                </div>
-            <?php endif ?>
         </form>
     </container>
+    <?php if(count($errors) > 0) : ?>
+        <div style="font-family : monospace;">
+    <?php foreach($errors as $error) : ?>
+        <p style="color:red;"> <?php echo $error; ?> </p>
+    <?php endforeach ?>
+        </div>
+    <?php endif ?>
 </body>
             </main>
 

@@ -297,7 +297,7 @@ footer {
 
 .index_articles article{
     background-color : lavender;
-    width : 1200px;
+    width : 1250px;
     display : flex ; 
     flex-direction: column;
     justify-content:  center;

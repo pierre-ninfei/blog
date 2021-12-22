@@ -13,7 +13,7 @@
         $bdd = mysqli_connect("localhost","root","root","blog");mysqli_set_charset($bdd,"UTF8");
         $requete = mysqli_query($bdd,"SELECT * FROM utilisateurs");
         $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
-        
+
     ?>
 
 <body>
@@ -43,13 +43,13 @@
                 <?php 
                  
                 $id = $_GET['id'];
-                $req=mysqli_query($bdd,"SELECT * from utilisateurs  WHERE id = '$id' ");
+                $req=mysqli_query($conn,"SELECT * from utilisateurs  WHERE id = '$id' ");
                 $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
-                    $asc=mysqli_query($bdd,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id` ASC");
+                    $asc=mysqli_query($conn,"SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`id` ASC");
 
 
                 if(isset($_POST['deleteUtilisateur'])){
-                    $req = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE `id` = $id");
+                    $req = mysqli_query($conn,"DELETE FROM `utilisateurs` WHERE `id` = $id");
                     header("location:admin.php"); // lien vers ta page de suppression de l'utilisateur 
                     echo "mpmp";
                 }               

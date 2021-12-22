@@ -44,7 +44,7 @@
       <div class ='social'>
       </div>
    </div>
-   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés <ahref='https://github.com/pierre-ninfei/blog'> Github </a> <p>
+   <p id='copyright'>Copyright 2021 - The Blog. - Tous droits réservés <a href='https://github.com/pierre-ninfei/blog'> Github </a> <p>
 
    "
 ?>

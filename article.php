@@ -112,6 +112,7 @@ $i = 0;
 
 $comment = $_POST["comment"];
 $id_user = $_SESSION['idu'];
+var_dump($id_user);
 
 $toDate = date_format(date_create($toDate),'Y-m-d  H:i');
 $toDate =strftime('%Y-%m-%dT%H:%M', strtotime($toDate));

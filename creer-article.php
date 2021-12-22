@@ -54,7 +54,7 @@ $id_user = $query->fetch_all();
 //_________________set variables_________________//
 
 $id_categorie = $_GET["categories"];
-$id_user = $id_user[0][0];
+$id_user = $_SESSION['idu']['id'];
 $article = $_GET["article"];
 $toDate = date_format(date_create($toDate),'Y-m-d  H:i');
 

@@ -48,7 +48,7 @@
                     
                         if (isset($_POST['name'])){
                             if($newCatNom != $POST['name']){
-                                $reqArt = mysqli_query($bdd,"UPDATE `categories` SET nom = '$newCatNom' WHERE `id`= $id" );
+                                $reqArt = mysqli_query($conn,"UPDATE `categories` SET nom = '$newCatNom' WHERE `id`= $id" );
                                 $_POST['name'] = $catNom;
                                 header('location: admin.php');
                             }

@@ -43,12 +43,12 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
                 <?php 
                  
                 $id = $_GET['id'];
-                $req=mysqli_query($bdd,"SELECT * from articles  WHERE id = '$id' ");
+                $req=mysqli_query($conn,"SELECT * from articles  WHERE id = '$id' ");
                 $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
 
 
                 if(isset($_POST['deleteArticle'])){
-                    $req = mysqli_query($bdd,"DELETE FROM `articles` WHERE `id` = $id");
+                    $req = mysqli_query($conn,"DELETE FROM `articles` WHERE `id` = $id");
                     header("location:admin.php"); // lien vers la page de suppression de l'utilisateur 
                 }               
         

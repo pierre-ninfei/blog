@@ -40,12 +40,12 @@
                 <?php 
                  
                 $id = $_GET['id'];
-                $req=mysqli_query($bdd,"SELECT * from categories  WHERE id = '$id' ");
+                $req=mysqli_query($conn,"SELECT * from categories  WHERE id = '$id' ");
                 $res=mysqli_fetch_all($req,MYSQLI_ASSOC);
 
 
                 if(isset($_POST['deleteCategorie'])){
-                    $req = mysqli_query($bdd,"DELETE FROM `categories` WHERE `id` = $id");
+                    $req = mysqli_query($conn,"DELETE FROM `categories` WHERE `id` = $id");
                     header("location:admin.php"); // lien vers la page de suppression de l'utilisateur 
                 }               
         

@@ -53,8 +53,8 @@
                         $newartDate = $_POST['date'];
                         if (isset($_POST['article'])){
                             if($newartDet != $POST['article']){
-                                $reqArt = mysqli_query($bdd,"UPDATE `articles` SET article = '$newartDet' WHERE `id`= $id" );
-                                $reqDate = mysqli_query($bdd,"UPDATE `date` SET date = '$newdate' WHERE `id`= '$id'" );
+                                $reqArt = mysqli_query($conn,"UPDATE `articles` SET article = '$newartDet' WHERE `id`= $id" );
+                                $reqDate = mysqli_query($conn,"UPDATE `date` SET date = '$newdate' WHERE `id`= '$id'" );
                                 $_POST['article'] = $artDet;
                                 header('location: admin.php');
                             }

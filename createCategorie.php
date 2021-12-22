@@ -50,7 +50,7 @@
                     ///////////// requete pour envoyer les infos dans la bdd\\\\\\\\\\\ -->
 
                                 if($taken == false){
-                                    $req = mysqli_query($bdd,"INSERT INTO categories(nom) VALUES ('$name')");
+                                    $req = mysqli_query($conn,"INSERT INTO categories(nom) VALUES ('$name')");
                                     //header('Location: admin.php');
                                      
                             }               

@@ -286,7 +286,8 @@ footer {
 }
 
 .fa-github{
-    font-size : 27px;
+    width : 30px;
+    height : 30px;
 }
 
 .index_articles{

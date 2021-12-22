@@ -58,8 +58,15 @@
 					$p_id_d_q = mysqli_query($conn, $p_query_id);
 					$p_id_droits = mysqli_fetch_assoc($p_id_d_q);
 
+					//retireve user's ID
+
+					$p_query_idu = "SELECT id from utilisateurs WHERE (login='$p_loginc')";
+					$p_id_q = mysqli_query($conn, $p_query_idu);
+					$p_id = mysqli_fetch_assoc($p_id_q);
+
 					// define new session vars
 
+					$_SESSION['idu'] = $p_id;
 					$_SESSION['id'] = $p_id_droits;
 					$_SESSION['login'] = $p_loginc;
 					$_SESSION['success'] = "Connexion validée";

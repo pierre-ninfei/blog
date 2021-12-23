@@ -285,8 +285,8 @@ footer {
     font-size : 10px;
 }
 
-footer a{
-  font-size : 40px;
+.github{
+    font-size : 27px;
 }
 
 .index_articles{
@@ -678,4 +678,9 @@ main {
     padding-left: 100px;
     text-decoration: none;
 
+}
+
+.h1admin{
+    font-size: 80px;
+    margin-bottom: 40px;
 }

@@ -36,14 +36,14 @@
     ?>
 
 
-        <h2 style="text-align: center; color: white;">PROFIL ADMIN</h2></br>
+        <h1 class="h1admin" style="text-align: center; color: white;">PROFIL ADMIN</h1>
 
         </tr>
         
             <!-- //////////////////// gestion des Utilisateurs \\\\\\\\\\\\\\\\\ -->
 
      
-        <h3 style="text-align: center; color: white;">Utilisateurs</h3></br>
+        <h2 style="text-align: center; color: white;">Utilisateurs</h3></br>
         <div class= "articlesInputs">
         <table>
             

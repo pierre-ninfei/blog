@@ -99,7 +99,7 @@ $i = 0;
 <div class ="commentsA">
   <article class ="commentA">
     <form method = "post">
-      <input size = 50 placeholder="Your comment here" type="text" name="comment"> </input>
+      <input placeholder="Your comment here" type="text" name="comment"> </input>
       <input name ="addComment" type ="submit"class ="addComment" value= "Ajouter un commentaire"></input>
     </form>
   </article>

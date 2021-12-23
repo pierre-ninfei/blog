@@ -65,7 +65,8 @@
                     ///////////// requete pour envoyer les infos dans la bdd\\\\\\\\\\\ -->
 
                                 if($login == $confname && $password == $confpassword && $email == $confemail && $taken == false){
-                                    $req = mysqli_query($conn,"INSERT INTO utilisateurs(login, password, email, id_droits) VALUES ('$login','$password','$email','$id_droits')");
+                                     $npassword = password_hash($password, PASSWORD_DEFAULT);
+                                    $req = mysqli_query($conn,"INSERT INTO utilisateurs(login, password, email, id_droits) VALUES ('$login','$npassword','$email','$id_droits')");
                                     header('Location: admin.php');
                                     
                             }               

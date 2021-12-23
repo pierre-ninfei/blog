@@ -57,7 +57,8 @@
                 
                     if (isset($_POST['password']) && isset($_POST['confpassword'])){
                         if($newpassword == $confpassword){
-                            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET password = '$newpassword' WHERE `id`= '$id'" );
+                            $npassword = password_hash($newpassword, PASSWORD_DEFAULT);
+                            $req = mysqli_query($conn,"UPDATE `utilisateurs` SET password = '$npassword' WHERE `id`= '$id'" );
                         }
                     }
 

@@ -683,5 +683,6 @@ main {
 .h1admin{
     font-size: 80px;
     margin-bottom: 40px;
-    height: 200px;
+    margin-top: 45px;
+    height: 150px;
 }
